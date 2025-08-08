@@ -1,4 +1,4 @@
-const { getInitials, createSlug, average, createSlug2 } = require("./testVari")
+const { getInitials, createSlug, average, createSlug2, isPalindrome } = require("./testVari")
 /* 1-Creare un test che verifichi la seguente descrizione:
 👉 "La funzione getInitials restituisce le iniziali di un nome completo." */
 test("La funzione getInitials restituisce le iniziali di un nome completo.", () => {
@@ -23,3 +23,13 @@ createSlug("Questo è un test") → "questo-e-un-test" */
 test("La funzione createSlug2 sostituisce gli spazi con -.", () => {
     expect(createSlug2("Ciao Navod")).toBe("ciao-navod")
 })
+
+/* 5-Creare un test che verifichi la seguente descrizione:
+👉 "La funzione isPalindrome verifica se una stringa è un palindromo."
+📌 Nota: una stringa palindroma è una sequenza di caratteri che si legge uguale sia da sinistra a destra che da destra a sinistra.
+ */
+test("La funzione isPalindrome verifica se una stringa è un palindromo.", () => {
+    expect(isPalindrome("ama")).toBeTruthy()
+    expect(isPalindrome("amare")).toBeFalsy()
+})
+
