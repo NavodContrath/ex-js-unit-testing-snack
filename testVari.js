@@ -8,4 +8,8 @@ function createSlug(string) {
     return string.toLowerCase()
 }
 
-module.exports = { getInitials, createSlug }
+function average(arr) {
+    return arr.reduce((acc, num) => acc + num, 0) / arr.length
+}
+
+module.exports = { getInitials, createSlug, average }
