@@ -11,5 +11,8 @@ function createSlug(string) {
 function average(arr) {
     return arr.reduce((acc, num) => acc + num, 0) / arr.length
 }
+function createSlug2(string) {
+    return string.split(" ").join("-").toLowerCase()
+}
 
-module.exports = { getInitials, createSlug, average }
+module.exports = { getInitials, createSlug, average, createSlug2 }
