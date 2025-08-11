@@ -1,3 +1,9 @@
+const posts = [
+    { id: 1, title: "Primo Post", slug: "primo-post" },
+    { id: 2, title: "Secondo Post", slug: "secondo-post" },
+    { id: 3, title: "Terzo Post", slug: "terzo-post" }
+]
+
 function getInitials(fullName) {
     const names = fullName.split(" ")
     const initials = names.map(name => name[0].toUpperCase())
@@ -23,10 +29,16 @@ function isPalindrome(string) {
     return string === string.split("").reverse().join("")
 }
 
+function findPostById(id) {
+    return posts.find(post => post.id === id)
+}
+
 module.exports = {
     getInitials,
     createSlug,
     average,
     createSlug2,
-    isPalindrome
+    isPalindrome,
+    findPostById,
+    posts
 }

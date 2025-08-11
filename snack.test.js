@@ -1,4 +1,4 @@
-const { getInitials, createSlug, average, createSlug2, isPalindrome } = require("./testVari")
+const { getInitials, createSlug, average, createSlug2, isPalindrome, posts, findPostById } = require("./testVari")
 /* 1-Creare un test che verifichi la seguente descrizione:
 👉 "La funzione getInitials restituisce le iniziali di un nome completo." */
 test("La funzione getInitials restituisce le iniziali di un nome completo.", () => {
@@ -38,4 +38,20 @@ test("La funzione isPalindrome verifica se una stringa è un palindromo.", () =>
 test("La funzione createSlug lancia un errore se il titolo è vuoto o non valido.", () => {
     expect(() => createSlug()).toThrow()
     expect(() => createSlug("")).toThrow()
+})
+
+/* 7-Crea un array di oggetti posts, in cui ogni oggetto ha le proprietà id, title e slug.
+Creare un test che verifichi le seguenti descrizioni:
+👉 "La funzione findPostById restituisce il post corretto dato l’array di post e l’id"
+Creare uno o più test aggiuntivi che controllino che la struttura dati passati sia conforme (ogni post ha le proprietà id, title e slug, viene passato un id numerico). */
+
+
+test("La funzione findPostById restituisce il post corretto dato l’array di post e l’id", () => {
+    expect(findPostById(2)).toEqual({ id: 2, title: "Secondo Post", slug: "secondo-post" })
+})
+
+test("L'id di ogni post deve essere un numero", () => {
+    posts.forEach(post => {
+        expect(typeof post.id).toBe("number");
+    })
 })
