@@ -18,19 +18,28 @@ function createSlug(string) {
 }
 
 function average(arr) {
+    arr.forEach(num => {
+        if (isNaN(num)) {
+            throw new Error("Richiesti solo numeri")
+        }
+    })
     return arr.reduce((acc, num) => acc + num, 0) / arr.length
 }
 
 function createSlug2(string) {
-    return string.split(" ").join("-").toLowerCase()
+    return string.toLowerCase().replaceAll(" ", "-")
 }
 
 function isPalindrome(string) {
-    return string === string.split("").reverse().join("")
+
+    return string.trim() === string.trim().split("").reverse().join("")
 }
 
-function findPostById(id) {
-    return posts.find(post => post.id === id)
+function findPostById(posts, id) {
+    if (isNaN(id)) {
+        throw new Error(`${id} non è un numero`)
+    }
+    return posts.find(post => post.id === id) || null
 }
 
 module.exports = {

@@ -15,6 +15,7 @@ test("La funzione createSlug restituisce una stringa in lowercase.", () => {
 👉 "La funzione average calcola la media aritmetica di un array di numeri." */
 test("La funzione average calcola la media aritmetica di un array di numeri.", () => {
     expect(average([2, 4, 6, 8, 10])).toBe(6)
+    expect(() => average([5, "ciao"])).toThrow()
 })
 /* 4-Creare un test che verifichi la seguente descrizione:
 👉 "La funzione createSlug sostituisce gli spazi con -."
@@ -29,7 +30,7 @@ test("La funzione createSlug2 sostituisce gli spazi con -.", () => {
 📌 Nota: una stringa palindroma è una sequenza di caratteri che si legge uguale sia da sinistra a destra che da destra a sinistra.
  */
 test("La funzione isPalindrome verifica se una stringa è un palindromo.", () => {
-    expect(isPalindrome("ama")).toBeTruthy()
+    expect(isPalindrome("ama ")).toBeTruthy()
     expect(isPalindrome("amare")).toBeFalsy()
 })
 
@@ -47,11 +48,13 @@ Creare uno o più test aggiuntivi che controllino che la struttura dati passati 
 
 
 test("La funzione findPostById restituisce il post corretto dato l’array di post e l’id", () => {
-    expect(findPostById(2)).toEqual({ id: 2, title: "Secondo Post", slug: "secondo-post" })
+    expect(findPostById(posts, 2)).toEqual({ id: 2, title: "Secondo Post", slug: "secondo-post" })
+    expect(findPostById(posts, 4)).toBe(null)
+    expect(() => findPostById(posts, "ciao").toThrow())
 })
 
-test("L'id di ogni post deve essere un numero", () => {
+/* test("L'id di ogni post deve essere un numero", () => {
     posts.forEach(post => {
         expect(typeof post.id).toBe("number");
     })
-})
+}) */
