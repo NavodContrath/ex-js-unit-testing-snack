@@ -39,6 +39,15 @@ function findPostById(posts, id) {
     if (isNaN(id)) {
         throw new Error(`${id} non è un numero`)
     }
+    posts.forEach(p => {
+        if (
+            p.id === undefined ||
+            p.title === undefined ||
+            p.slug === undefined
+        ) {
+            throw new Error("Formato array sbagliato")
+        }
+    })
     return posts.find(post => post.id === id) || null
 }
 
